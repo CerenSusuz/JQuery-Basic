@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <title>Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style>
+        .colorfulParagraph {
+            color: aquamarine;
+            font-size: 20px;
+        }
+        
+        .bigAndColorfult {
+            color: blueviolet;
+            font-size: 42px;
+        }
+        
+        .italic {
+            font-style: italic;
+            font-size: 32px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <p id="paragraph1">Web Developer </p>
+
+    <p class="paragraph">Web Developer </p>
+
+    <p class="paragraph">Web Developer </p>
+
+    <p id="paragraph4">Web Developer </p>
+
+    <script>
+        $(function() {
+            $(".paragraph").click(function() {
+                $(this).toggleClass("colorfulParagraph");
+            });
+        });
+        $("#paragraph1").click(function() {
+            $(this).addClass("bigAndColorfult");
+        });
+        $("#paragraph4").click(function() {
+            $(this).toggleClass("italic");
+        });
+    </script>
+
+</body>
+
+</html>

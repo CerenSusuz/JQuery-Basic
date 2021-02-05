@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>Jquery</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <p> Web Developer </p>
+
+    <button id="fadein">Fade In</button>
+    <button id="fadeout">Fade Out</button>
+    <button id="fadeto">Fade to</button>
+    <button id="toggle">Fade Toggle</button>
+
+
+    <button id="slideup">Slide Up</button>
+    <button id="slidedown">Slide Down</button>
+    <button id="slideToggle">Slide Toggle</button>
+
+    <script>
+        $(function() {
+
+            $("#fadein").click(function() {
+                $("p").fadeIn("slow");
+            });
+
+            $("#fadeout").click(function() {
+                $("p").fadeOut(1000, function() {
+                    alert("worked");
+                });
+            });
+
+            $("#fadeto").click(function() {
+                $("p").fadeTo("slow", 0.5);
+            });
+
+            $("#toggle").click(function() {
+                $("p").fadeToggle("slow");
+            });
+        });
+
+        $(function() {
+
+            $("#slideup").click(function() {
+                $("p").slideUp("fast");
+            });
+
+            $("#slidedown").click(function() {
+                $("p").slideDown(1000)
+            });
+
+            $("#slideToggle").click(function() {
+                $("p").slideToggle("slow");
+            });
+        });
+    </script>
+</body>
+
+</html>

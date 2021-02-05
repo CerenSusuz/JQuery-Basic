@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style>
+        #wrapper {
+            width: 500px;
+            margin: 0 auto;
+        }
+        
+        body {
+            font-size: 120%;
+        }
+        
+        input {
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 4px;
+            border: 1px solid darkcyan;
+            width: 280px;
+        }
+        
+        label {
+            display: inline-block;
+            width: 200px;
+        }
+        
+        button {
+            background-color: green;
+            color: bisque;
+            border-radius: 4px;
+            width: 100%;
+            padding: 10px 12px;
+            cursor: pointer;
+            margin-top: 12px;
+        }
+        
+        .form-group {
+            margin-bottom: 12px;
+        }
+        
+        #error {
+            color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="error">
+    </div>
+    <div id="wrapper">
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="please enter your email">
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            <input type="text" name="phone" id="phone" placeholder="please enter your phone number">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="text" name="password" id="password" placeholder="please enter your password">
+        </div>
+        <div class="form-group">
+            <label for="repassword">RePassword:</label>
+            <input type="text" name="repassword" id="repassword" placeholder="please enter your repassword">
+        </div>
+        <button id="btn">
+            Submit
+        </button>
+    </div>
+    <script>
+        $(function() {
+
+            function isEmail(email) {
+                var pattern = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+                return pattern.test(email);
+            }
+            $("#btn").click(function() {
+
+                var errorMessage = "";
+                $("#error").html("");
+
+                if ($("#email").val() == "") {
+                    errorMessage += "<p> required field </p>";
+                }
+
+                if (isEmail($("#email").val()) == false) {
+                    errorMessage += "<p> Not correct email type";
+                }
+
+                if ($.isNumeric($("#phone").val()) == "") {
+                    errorMessage += "<p> Not correct  phone type</p>";
+                }
+
+                if ($("#password").val() == "") {
+                    errorMessage += "<p> required field </p>";
+                }
+
+                if ($("#password").val() != $("#repassword").val()) {
+                    errorMessage += "<p> passwords do not match ! </p>";
+                }
+
+                if (errorMessage != "") {
+                    $("#error").html(errorMessage);
+                }
+
+            });
+        });
+    </script>
+
+</body>
+
+</html>

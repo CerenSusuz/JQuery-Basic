@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        
+        #message-box {
+            background-color: antiquewhite;
+            color: darkcyan;
+            text-align: center;
+            font-size: large;
+        }
+        
+        #header {
+            cursor: pointer;
+            padding: 18px;
+            border-bottom: 2px solid cadetblue;
+        }
+        
+        .content {
+            padding: 8px;
+            display: none;
+        }
+        
+        .title {
+            border-style: dotted;
+        }
+        
+        .message {
+            display: none;
+        }
+        
+        .fa-window-close {
+            float: right;
+        }
+        
+        #close:hover {
+            color: red;
+        }
+    </style>
+
+    <script>
+        $(function() {
+            $("#header").click(function() {
+                $(".content").toggle(2000);
+            });
+            $("#close").click(function() {
+                $("#message-box").hide(2000);
+            });
+            $(".title").click(function() {
+                $(".message").toggle();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="message-box">
+        <div id="header">
+            <span id="close"><i class="fas fa-window-close"></i></span> Hello User
+        </div>
+        <div class="content">
+            <h4 class="title">Message</h4>
+            <p class="message">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur adipisci modi temporibus animi eaque tenetur repellendus natus sequi corrupti ea.</p>
+        </div>
+    </div>
+</body>
+
+</html>
